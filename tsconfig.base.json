@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@code/task-first": ["tasks/src/index.ts"]
+      "@code/task-first": ["tasks/task-first/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
