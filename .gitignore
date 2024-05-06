@@ -53,3 +53,4 @@ dist
 !/.github/**
 !/.github/
 !/.github/**
+.DS_Store
