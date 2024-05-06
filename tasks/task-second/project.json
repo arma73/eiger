@@ -1,0 +1,45 @@
+{
+  "name": "task-second",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tasks/task-second/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node bin/www",
+        "cwd": "tasks/task-second"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node bin/www",
+        "cwd": "tasks/task-second"
+      },
+      "dependsOn": [
+        {
+          "target": "prepand"
+        }
+      ]
+    },
+    "prepand": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npm install"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cross-env PORT=8001 ./node_modules/.bin/mocha '{projectRoot}/test' --reporter mocha-multi-reporters --reporter-options configFile={projectRoot}/config.json --exit"
+      },
+      "dependsOn": [
+        {
+          "target": "prepand"
+        }
+      ]
+    }
+  }
+}
